@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import {addFav, remoFav} from '../../src/redux/actions';
+import {connect} from 'react-redux';
 
 export default function Card({name, status,species,gender,origin,image, id, onclose} ) {
    return (
