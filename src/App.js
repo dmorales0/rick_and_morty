@@ -4,6 +4,7 @@ import About from './components/About';
 import Detail from './components/Detail';
 import Cards from './components/Cards.jsx';
 import Form from './components/Form';
+import Favorites from './components/favorites';
 import { useState, useEffect} from 'react';
 import axios from 'axios';
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
@@ -37,7 +38,9 @@ function App() {
    },[acces])
 
    const onSearch = (id) => {
-      axios(`${URL_BASE}/${id}?key=${API_KEY}`).then(({ data }) => {
+      axios(`${URL_BASE}/${id}?key=${API_KEY}`)
+      .then(response => response.data)
+      .then((data)=> {
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
          } else {
@@ -65,6 +68,9 @@ function App() {
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}/>
             <Route path='about' element= {<About/>}/>
             <Route path='/detai/:id' element= {<Detail/>}/>
+            <Route path='/favorites' element={<Favorites/>}/>
+
+         
           </Routes>
          
         

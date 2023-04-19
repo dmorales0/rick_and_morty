@@ -5,13 +5,11 @@ const Nav = ({onSearch}) =>{
     return(
         <nav>
           <SearchBar onSearch={onSearch}/>
-          <button >
+          
             <Link to='/about'>ABOUT</Link>
-          </button>
-
-          <button >
                <Link to='/home'>Home</Link>
-          </button>
+               <Link to='/favorites'>favorites</Link>
+         
         </nav>
     )
 }
